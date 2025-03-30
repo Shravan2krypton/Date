@@ -1,0 +1,81 @@
+/* Reset and basic styling */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  }
+  
+  /* Light pink background */
+  body {
+    width: 100%;
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: #ffd1dc;  /* Light pink */
+  }
+  
+  /* Main container styling */
+  .container {
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    align-items: center;
+    gap: 20px;
+    max-width: 500px;
+    padding: 30px;
+    margin: 20px;
+    background: #fff;
+    border-radius: 16px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
+    transition: transform 0.3s ease-in-out;
+  }
+  
+  .container:hover {
+    transform: translateY(-5px);
+  }
+  
+  /* Heading and paragraph styling */
+  .container h1 {
+    font-size: 2rem;
+    color: #ff4d4d;
+  }
+  
+  .container p {
+    font-size: 1.2rem;
+    color: #555;
+    line-height: 1.6;
+  }
+  
+  /* GIF styling */
+  .container img {
+    display: block;
+    max-width: 100%;
+    border-radius: 10px;  /* Rounded corners */
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1); /* Soft shadow */
+  }
+  
+  /* Button styling */
+  .container .btn {
+    display: flex;
+    gap: 25px;
+  }
+  
+  .btn a {
+    text-decoration: none;
+    color: #fff;
+    background: #ff4d4d;
+    padding: 12px 30px;
+    border-radius: 8px;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+    transition: all 0.3s ease;
+    font-weight: bold;
+  }
+  
+  .btn a:hover {
+    background: #ff1a1a;
+    transform: scale(1.05);
+    box-shadow: 0 12px 25px rgba(0, 0, 0, 0.2);
+  }
+  
