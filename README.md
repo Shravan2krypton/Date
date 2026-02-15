@@ -22,20 +22,6 @@ From a mysterious **gift box reveal 🎁** to a heartfelt **YES celebration 💖
 
 ---
 
-## 💝 Pages & Flow
-
-| Page | Description |
-|-----|------------|
-| `index.html` | 🎁 Gift box intro → “Will you be my Valentine?” |
-| `no1.html` | 😏 First playful persuasion |
-| `no2.html` | 🥺 Emotional convincing |
-| `no3.html` | 😭 The dramatic finale (No button runs away!) |
-| `yes.html` | 🎉 Celebration page with music, hearts & glow |
-| `style.css` | 🎨 All animations, universe styling & effects |
-| `script.js` | ⚙️ Gift logic, stars, and moving No button |
-| `audio.mp3` | 🎶 Background music for celebration |
-
----
 
 ## 🎮 How It Works
 
@@ -48,7 +34,4 @@ From a mysterious **gift box reveal 🎁** to a heartfelt **YES celebration 💖
    - Floating hearts 💖
    - Background music 🎶
    - Romantic glow ✨
-
----
-
 
