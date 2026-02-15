@@ -65,6 +65,26 @@ if (noBtn) {
 }
 
 
+const music = document.getElementById("bg-music");
+
+function startMusic() {
+  music.volume = 0;
+  music.play();
+
+  let vol = 0;
+  const fade = setInterval(() => {
+    vol += 0.03;
+    music.volume = Math.min(vol, 0.6);
+    if (vol >= 0.6) clearInterval(fade);
+  }, 200);
+
+  document.removeEventListener("click", startMusic);
+  document.removeEventListener("touchstart", startMusic);
+}
+
+// auto trigger on first interaction
+document.addEventListener("click", startMusic);
+document.addEventListener("touchstart", startMusic);
 
 
      
