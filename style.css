@@ -1,219 +1,223 @@
-/* Reset */
+/* ================= RESET ================= */
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
-  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  font-family: "Poppins", sans-serif;
 }
 
-/* Romantic background */
+/* ================= BODY ================= */
 body {
   min-height: 100vh;
   display: flex;
   justify-content: center;
   align-items: center;
-  background: radial-gradient(circle at top, #ffe6eb, #ffccd5);
-  animation: bgFade 6s ease-in-out infinite alternate;
+  background: radial-gradient(circle at top, #1b0036, #050012);
+  overflow: hidden;
+  color: white;
 }
 
-/* Soft background animation */
-@keyframes bgFade {
+/* ================= STAR BACKGROUND ================= */
+body::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background-image:
+    radial-gradient(2px 2px at 20% 30%, white, transparent),
+    radial-gradient(2px 2px at 70% 60%, white, transparent),
+    radial-gradient(1px 1px at 40% 80%, white, transparent),
+    radial-gradient(1.5px 1.5px at 90% 20%, white, transparent);
+  animation: stars 20s linear infinite;
+  opacity: 0.6;
+}
+
+@keyframes stars {
+  from { transform: translateY(0); }
+  to { transform: translateY(-200px); }
+}
+
+/* ================= EMOJI EFFECTS ================= */
+.love-effects span {
+  position: absolute;
+  font-size: 22px;
+  animation: float 10s linear infinite;
+  opacity: 0.8;
+}
+
+/* From top */
+.love-effects span:nth-child(odd) {
+  top: -10%;
+  animation-name: fall;
+}
+
+/* From bottom */
+.love-effects span:nth-child(even) {
+  bottom: -10%;
+  animation-name: rise;
+}
+
+@keyframes fall {
   from {
-    background-position: left;
+    transform: translateY(0) scale(0.8);
+    opacity: 0;
   }
   to {
-    background-position: right;
+    transform: translateY(120vh) scale(1.2);
+    opacity: 1;
   }
 }
 
-/* Main card */
+@keyframes rise {
+  from {
+    transform: translateY(0) scale(0.8);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(-120vh) scale(1.2);
+    opacity: 1;
+  }
+}
+
+/* Random positions */
+.love-effects span:nth-child(1){left:10%;animation-duration:8s;}
+.love-effects span:nth-child(2){left:25%;animation-duration:12s;}
+.love-effects span:nth-child(3){left:40%;animation-duration:10s;}
+.love-effects span:nth-child(4){left:55%;animation-duration:14s;}
+.love-effects span:nth-child(5){left:70%;animation-duration:9s;}
+.love-effects span:nth-child(6){left:85%;animation-duration:13s;}
+.love-effects span:nth-child(7){left:50%;animation-duration:11s;}
+.love-effects span:nth-child(8){left:30%;animation-duration:15s;}
+
+/* ================= CONTAINER ================= */
 .container {
-  background: #fff;
-  padding: 32px;
-  max-width: 520px;
-  margin: 20px;
-  border-radius: 22px;
+  position: relative;
+  width: 90%;
+  max-width: 360px;
+  padding: 25px;
   text-align: center;
+  background: rgba(255, 255, 255, 0.12);
+  backdrop-filter: blur(14px);
+  border-radius: 20px;
+  border: 1px solid rgba(255,255,255,0.3);
+  box-shadow: 0 0 40px rgba(255, 0, 255, 0.3);
+  animation: fadeUp 1.5s ease;
+}
+
+/* Smooth appearance */
+@keyframes fadeUp {
+  from {
+    opacity: 0;
+    transform: translateY(40px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* ================= GIF ================= */
+.container img {
+  width: 180px;
+  margin-bottom: 15px;
+  border-radius: 12px;
+  box-shadow: 0 0 20px rgba(255, 105, 180, 0.6);
+}
+
+/* ================= TEXT ================= */
+h1 {
+  font-size: 1.4rem;
+  margin-bottom: 10px;
+}
+
+p {
+  font-size: 1rem;
+  opacity: 0.9;
+}
+
+/* ================= BUTTONS ================= */
+.btn {
+  margin-top: 20px;
+  display: flex;
+  justify-content: center;
+  gap: 15px;
+}
+
+.btn a {
+  padding: 10px 22px;
+  text-decoration: none;
+  border-radius: 30px;
+  font-weight: 600;
+  color: white;
+  background: linear-gradient(135deg, #ff4ecd, #ff2a6d);
+  box-shadow: 0 0 15px rgba(255, 20, 147, 0.6);
+  transition: all 0.3s ease;
+}
+
+.btn a:hover {
+  transform: scale(1.1);
+}
+
+/* ================= LOVE NAME ================= */
+.love-name {
+  font-size: 1.6rem;
+  letter-spacing: 3px;
+  margin: 10px 0;
+  animation: glow 2s infinite alternate;
+}
+
+@keyframes glow {
+  from { text-shadow: 0 0 10px pink; }
+  to { text-shadow: 0 0 25px hotpink; }
+}
+
+/* ================= MOBILE ================= */
+@media (max-width: 480px) {
+  h1 { font-size: 1.2rem; }
+  p { font-size: 0.95rem; }
+}
+/* ================= VISIBILITY CONTROL ================= */
+
+/* Ensure gift screen covers everything */
+.gift-screen {
+  position: fixed;
+  inset: 0;
+  z-index: 999;
   display: flex;
   flex-direction: column;
-  gap: 20px;
+  justify-content: center;
   align-items: center;
-
-  box-shadow: 0 20px 40px rgba(255, 77, 109, 0.25);
-  transition: transform 0.5s ease, box-shadow 0.5s ease;
-
-  animation: floatCard 4s ease-in-out infinite;
+  transition: opacity 0.8s ease;
+  background: radial-gradient(circle at top, #1b0036, #050012);
 }
 
-/* Floating cute effect */
-@keyframes floatCard {
-  0% {
-    transform: translateY(0);
-  }
-  50% {
-    transform: translateY(-8px);
-  }
-  100% {
-    transform: translateY(0);
-  }
+/* Main content must NOT affect layout before gift opens */
+.main-content.hidden {
+  display: none;
 }
 
-.container:hover {
-  box-shadow: 0 30px 60px rgba(255, 77, 109, 0.35);
-}
-
-/* Headings */
-.container h1 {
-  font-size: 2.1rem;
-  color: #ff4d6d;
-  text-shadow: 0 2px 6px rgba(255, 77, 109, 0.3);
-}
-
-.container p {
-  font-size: 1.2rem;
-  color: #666;
-}
-
-/* GIF styling (SAFE – no distortion) */
-.container img {
-  max-width: 100%;
-  border-radius: 16px;
-  box-shadow: 0 12px 25px rgba(0, 0, 0, 0.15);
-  transition: transform 0.4s ease;
-}
-
-.container img:hover {
-  transform: scale(1.03);
-}
-
-/* Buttons */
-.btn {
-  display: flex;
-  gap: 25px;
-}
-
-/* Common button */
-.btn a {
-  text-decoration: none;
-  padding: 14px 34px;
-  border-radius: 30px;
-  font-weight: bold;
-  color: #fff;
-  background: linear-gradient(135deg, #ff4d6d, #ff758f);
-  box-shadow: 0 10px 25px rgba(255, 77, 109, 0.4);
-
-  transition: all 0.35s ease;
+/* After gift opens */
+.main-content {
   position: relative;
-  overflow: hidden;
+  z-index: 10;
+}
+.gift-box {
+  font-size: 90px;
+  cursor: pointer;
+  animation: floatGift 3s ease-in-out infinite;
 }
 
-/* Cute hover */
-.btn a:hover {
-  transform: scale(1.08);
-  box-shadow: 0 16px 35px rgba(255, 77, 109, 0.6);
+@keyframes floatGift {
+  0%,100% { transform: translateY(0); }
+  50% { transform: translateY(-15px); }
 }
 
-/* Soft pulse for YES button */
-.btn a:first-child {
-  animation: pulse 1.8s infinite;
+.gift-box.open {
+  animation: openGift 1s ease forwards;
 }
 
-@keyframes pulse {
-  0% {
-    box-shadow: 0 0 0 0 rgba(255, 77, 109, 0.6);
-  }
-  70% {
-    box-shadow: 0 0 0 18px rgba(255, 77, 109, 0);
-  }
-  100% {
-    box-shadow: 0 0 0 0 rgba(255, 77, 109, 0);
-  }
-}
-
-/* ------------------------------
-   Romantic Rain Background
--------------------------------- */
-.romantic-rain {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  pointer-events: none;
-  overflow: hidden;
-  z-index: 0;
-}
-
-.romantic-rain span {
-  position: absolute;
-  top: -10%;
-  font-size: 22px;
-  opacity: 0.7;
-  animation: rainFall linear infinite;
-}
-
-/* Random positions & speeds */
-.romantic-rain span:nth-child(1) { left: 5%; animation-duration: 12s; }
-.romantic-rain span:nth-child(2) { left: 15%; animation-duration: 9s; }
-.romantic-rain span:nth-child(3) { left: 25%; animation-duration: 11s; }
-.romantic-rain span:nth-child(4) { left: 35%; animation-duration: 10s; }
-.romantic-rain span:nth-child(5) { left: 45%; animation-duration: 13s; }
-.romantic-rain span:nth-child(6) { left: 55%; animation-duration: 9s; }
-.romantic-rain span:nth-child(7) { left: 65%; animation-duration: 12s; }
-.romantic-rain span:nth-child(8) { left: 75%; animation-duration: 10s; }
-.romantic-rain span:nth-child(9) { left: 85%; animation-duration: 14s; }
-.romantic-rain span:nth-child(10){ left: 95%; animation-duration: 11s; }
-
-@keyframes rainFall {
-  0% {
-    transform: translateY(0) rotate(0deg);
+@keyframes openGift {
+  to {
+    transform: scale(0) rotate(720deg);
     opacity: 0;
-  }
-  10% {
-    opacity: 0.8;
-  }
-  100% {
-    transform: translateY(120vh) rotate(360deg);
-    opacity: 0;
-  }
-}
-
-/* Ensure content stays above rain */
-.container {
-  position: relative;
-  z-index: 2;
-}
-
-/* ------------------------------
-   Mobile Responsiveness
--------------------------------- */
-@media (max-width: 600px) {
-  .container {
-    width: 92%;
-    padding: 24px;
-    border-radius: 18px;
-  }
-
-  .container h1 {
-    font-size: 1.7rem;
-  }
-
-  .container p {
-    font-size: 1.05rem;
-  }
-
-  .btn {
-    flex-direction: column;
-    gap: 15px;
-  }
-
-  .btn a {
-    width: 100%;
-    padding: 14px;
-    font-size: 1rem;
-  }
-
-  .container img {
-    max-width: 90%;
   }
 }
